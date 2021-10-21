@@ -9,6 +9,14 @@ class SupplySite:
         self.closingStock = {}            # ex  {"SKU1": 1000,43 hl}
 
 
+    def setLatitude(self, latitude):
+        self.latitude = latitude
+
+
+    def setLongitude(self, longitude):
+        self.longitude = longitude
+
+
     def addSKUsToDeploy(self, sku, number):
         self.availableToDeploy[sku] += number
 
