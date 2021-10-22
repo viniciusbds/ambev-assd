@@ -1,4 +1,9 @@
-# ambev-assd
+# ambev assd
+
+
+
+<img src="/icon.png" alt="drawing" width="120"/>
+
 
 
 ## Arquivo de apresentação
@@ -53,3 +58,7 @@ externa (caso exista);
 
 Para ajudar a compreender a estrutura recomendada, segue exemplo de documentação disponibilizada
 pela equipe AcademyHack: https://github.com/lahbs/modelo_academy_hack.
+
+
+
+###### [Icon](./icon.png) made by [Freepik](https://www.flaticon.com/br/autores/freepik) from [www.flaticon.com](https://www.flaticon.com/br/)
