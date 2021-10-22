@@ -4,6 +4,26 @@
 
 <img src="/icon.png" alt="drawing" width="120"/>
 
+O ambev **ASSD** é um algoritmo de distribuição de estoques que busca equilibrar os SKUs dos depósitos da Ambev sejam eles dos centros de distribuição **(CDD)** ou das fábricas. O ASSD é consciente da natureza não linear das vendas dos produtos Ambev, que pode variar de acordo com cenarios, como por exemplo: um maior calor em determinada região, feriados regionais, ou simplesmente um desequilibrio em um CDD causado por grandes demandas de grandes supermercados ou revendedores.
+
+O algoritmo implementa um mecanismo de otimização baseado em prioridades, no qual prioriza os depósitos com menor nível de estoque desejado, que pode variar com a demanda prevista esperada.
+
+#### Objetivos / Métricas de interesse
+
+- Garantir a disponibilidade dos SKUS em todos os estoques
+- Evitar vencimento de produtos
+- Reduzir custos de transporte durante a escolha dos fornecedores 
+- Rebalancear os estoques de acordo com as demandas locais repentinas
+
+
+#### Otimização
+
+A otimização é feita em dois níveis:
+
+1) A nível de distribuição, onde as produções das fábricas são distribuidas entre os CDDs buscando otimizar as métricas de interesse
+2) A nível de depósito, onde se busca equilibrar os depósitos de acordo com a necessidade, quando um depósito fica desequilibrado, seja por:  
+   - uma alta demanda, por exemplo, devido a grandes carradas feita por uma grande rede de supermercados;
+   - ou quando um CDD não vende um SKU como esperava e fica com estoque excedente.
 
 
 ## Arquivo de apresentação
