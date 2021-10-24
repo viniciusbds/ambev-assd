@@ -28,8 +28,16 @@ def readDataset():
             closingStock = row[8]
             availableToDeploy = row[9]
             distributorOrders = row[10]
-            closingStock = row[11]
+            futureHolidays = row[11]
 
+            # parse quantitative vars to float
+            averageDemand = float(averageDemand.replace(',','.'))
+            minDOC = float(minDOC.replace(',','.'))
+            reorderPoint = float(reorderPoint.replace(',','.'))
+            maxDOC = float(maxDOC.replace(',','.'))
+            closingStock = float(closingStock.replace(',','.'))
+            availableToDeploy = float(availableToDeploy.replace(',','.'))
+            distributorOrders = float(distributorOrders.replace(',','.'))
 
             if supplySiteCode in supplySites:
                 supplySite = supplySites[supplySiteCode]
