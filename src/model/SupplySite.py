@@ -5,9 +5,9 @@ class SupplySite:
         self.latitude = latitude
         self.longitude = longitude
         self.availableToDeploy = {}       # ex  {"SKU1": 10000,43 hl}   AVAILABLE TO DEPLOY
-        # self.capacity = {}                # ex {"SKU1": (min, reorder, max)}
+        self.capacity = {}                # ex  {"SKU1": (min, reorder, max)}
         self.closingStock = {}            # ex  {"SKU1": 1000,43 hl}
-        self.recipients = {}              #  SKU -> set() destinatarios (conjunto)
+        self.recipients = {}              # ex  {"SKU1": set(destinatarios) 
 
 
     def setLatitude(self, latitude):
@@ -22,16 +22,19 @@ class SupplySite:
         self.availableToDeploy[sku] = number
 
 
-    # def setSKUCapacity(self, sku, min, reorder, max):
-    #     self.capacity[sku] += (min,reorder,max)
+    def setSKUCapacity(self, sku, min, reorder, max):
+        self.capacity[sku] = (min,reorder,max)
 
 
     def setSKUClosingStock(self, sku, closingStock):
+        self.closingStock[sku] = closingStock
+
+
+    def addSKUClosingStock(self, sku, closingStock):
         self.closingStock[sku] += closingStock
 
 
     def addRecipient(self, sku, locationCode):
-        print("LCODE: " + locationCode)
         if sku in self.recipients:
             self.recipients[sku].add(locationCode)
         else:
@@ -40,7 +43,4 @@ class SupplySite:
 
     
     def __str__(self):
-        # + " localization: (" + str(self.latitude) + "," + str(self.longitude)  +")" 
-        # + " len availableToDeploy: " + str(len(self.availableToDeploy)) 
         return "code: " + self.code  +  " recipients (" +  str(len(self.recipients)) +"): " + str(self.recipients) + " availableToDeploy: " + str(self.availableToDeploy) +  " closingStock: " + str(self.closingStock )
-
