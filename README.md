@@ -1,8 +1,9 @@
-# ambev assd
+# ambev assd <img src="/ufcg.png" alt="drawing" width="30"/>
 
 
+<img src="/icon.png" alt="drawing" width="120"/> 
 
-<img src="/icon.png" alt="drawing" width="120"/>
+
 
 O ambev **ASSD** é um algoritmo de distribuição de estoques que busca equilibrar os SKUs dos depósitos da Ambev sejam eles dos centros de distribuição **(CDD)** ou das fábricas. O ASSD é consciente da natureza não linear das vendas dos produtos Ambev, que pode variar de acordo com cenarios, como por exemplo: um maior calor em determinada região, feriados regionais, ou simplesmente um desequilibrio em um CDD causado por grandes demandas de grandes supermercados ou revendedores.
 
@@ -79,6 +80,7 @@ externa (caso exista);
 Para ajudar a compreender a estrutura recomendada, segue exemplo de documentação disponibilizada
 pela equipe AcademyHack: https://github.com/lahbs/modelo_academy_hack.
 
+<img src="/ufcg.png" alt="drawing" width="100"/>
 
 
 ###### [Icon](./icon.png) made by [Freepik](https://www.flaticon.com/br/autores/freepik) from [www.flaticon.com](https://www.flaticon.com/br/)
