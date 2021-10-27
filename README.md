@@ -26,17 +26,19 @@ A otimização é feita em dois níveis:
    - uma alta demanda, por exemplo, devido a grandes carradas feita por uma grande rede de supermercados;
    - ou quando um CDD não vende um SKU como esperava e fica com estoque excedente.
 
+##### [Link da Apresentação do Projeto](https://docs.google.com/presentation/d/1vmMnY2uUdm0bWoeyEkHTZT8bn_Ae7MmfZ-AjhboeY1g/edit?usp=sharing)
 
 ## Arquitetura
 
 ...
 
-## Dependencias
+## Pré requisitos
 
+- ubuntu os
 - python3
 - openpyxl
 - pandas
-- googlemaps
+- [googlemaps](https://github.com/googlemaps/google-maps-services-python)
 
 para instalar basta executar:
 ```bash 
@@ -86,11 +88,4 @@ Serão dois arquivos: **distribution-result.csv** e **rebalance-result.csv**, qu
 `New Closing Stock` : quantidade do **SKU** no depósito **Location Code** depois da execução do algoritmo
 
 
-
-## Apresentação
-[slides](https://docs.google.com/presentation/d/1vmMnY2uUdm0bWoeyEkHTZT8bn_Ae7MmfZ-AjhboeY1g/edit?usp=sharing)
-
-
-<img src="/ufcg.png" alt="drawing" width="50"/>
-
-###### [Icon](./icon.png) made by [Freepik](https://www.flaticon.com/br/autores/freepik) from [www.flaticon.com](https://www.flaticon.com/br/)
+###### Logo [Icon](./icon.png) made by [Freepik](https://www.flaticon.com/br/autores/freepik) from [www.flaticon.com](https://www.flaticon.com/br/)
