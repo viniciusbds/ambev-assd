@@ -24,13 +24,21 @@ A otimização é feita em dois níveis:
 1) A nível de distribuição, onde as produções das fábricas são distribuidas entre os CDDs buscando otimizar as métricas de interesse
 2) A nível de depósito, onde se busca equilibrar os depósitos de acordo com a necessidade, quando um depósito fica desequilibrado, seja por:  
    - uma alta demanda, por exemplo, devido a grandes carradas feita por uma grande rede de supermercados;
+
    - ou quando um CDD não vende um SKU como esperava e fica com estoque excedente.
 
 ##### [Link da Apresentação do Projeto](https://docs.google.com/presentation/d/1vmMnY2uUdm0bWoeyEkHTZT8bn_Ae7MmfZ-AjhboeY1g/edit?usp=sharing)
 
 ## Arquitetura
 
-...
+<p align="center">
+  <img src="/arquitetura.png" alt="drawing"/>
+</p>
+
+- **Distance Calculator**: responsável por consultar a API do googlemaps e calcular as distâncias entre as fábricas e os CDDs listados no arquivo de entrada `data.csv`. O resultado é uma tabela com informações contendo o código de origem/destino bem como suas latitudes e longitudes e a distrancia saindo da origem para o destino. Note de d(CDD1, CDD3)  não necessáriamente é igual a d(CDD3, CDD1), ja que a API do googlemaps calcula a distancia real, considerando estradas e possíveis problemas no caminho.
+- **CSV Handler**: é o responsável por ler o dataset da pasta [`input`](https://github.com/viniciusbds/ambev-assd/tree/main/input) e por salvar o resultado final em [`results`](https://github.com/viniciusbds/ambev-assd/tree/main/results)
+- **Distributor**: Distribui a produção `Available to Deploy` para os CDDs, usando o algoritmo de distribuição de estoques baseado em prioridades ASSD
+- **Rebalancer**: Rebalanceia os estoques, considerando o seu nível de estoque atual e o nível de estoque desejado. Caso tenha excedente, distribui os SKUs para CDDs que mais precisam e que possua um custo de transporte menor, a fim de otimizálo.
 
 ## Pré requisitos
 
