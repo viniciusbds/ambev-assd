@@ -1,6 +1,6 @@
 # Input
 
-Essa base de dados inclui dois arquivos principais:
+Insira nessa pasta os arquivos com as seguintes estruturas:
 
 #### data.csv
 
