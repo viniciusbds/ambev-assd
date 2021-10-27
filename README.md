@@ -35,10 +35,10 @@ A otimização é feita em dois níveis:
   <img src="/arquitetura.png" alt="drawing"/>
 </p>
 
-- **Distance Calculator**: responsável por consultar a API do googlemaps e calcular as distâncias entre as fábricas e os CDDs listados no arquivo de entrada `data.csv`. O resultado é uma tabela com informações contendo o código de origem/destino bem como suas latitudes e longitudes e a distrancia saindo da origem para o destino. Note de d(CDD1, CDD3)  não necessáriamente é igual a d(CDD3, CDD1), ja que a API do googlemaps calcula a distancia real, considerando estradas e possíveis problemas no caminho.
+- **Distance Calculator**: módulo responsável por consultar a API do googlemaps e calcular as distâncias entre as fábricas e os CDDs listados no arquivo de entrada `data.csv`. O resultado é uma tabela com informações contendo o código de origem/destino bem como suas latitudes e longitudes e a distrancia saindo da origem para o destino. Note de d(CDD1, CDD3)  não necessáriamente é igual a d(CDD3, CDD1), ja que a API do googlemaps calcula a distancia real, considerando estradas e possíveis problemas no caminho.
 - **CSV Handler**: é o responsável por ler o dataset da pasta [`input`](https://github.com/viniciusbds/ambev-assd/tree/main/input) e por salvar o resultado final em [`results`](https://github.com/viniciusbds/ambev-assd/tree/main/results)
-- **Distributor**: Distribui a produção `Available to Deploy` para os CDDs, usando o algoritmo de distribuição de estoques baseado em prioridades ASSD
-- **Rebalancer**: Rebalanceia os estoques, considerando o seu nível de estoque atual e o nível de estoque desejado. Caso tenha excedente, distribui os SKUs para CDDs que mais precisam e que possua um custo de transporte menor, a fim de otimizálo.
+- **Distributor**: distribui a produção `Available to Deploy` para os CDDs, usando o algoritmo de distribuição de estoques baseado em prioridades ASSD
+- **Rebalancer**: rebalanceia os estoques, considerando o seu nível de estoque atual e o nível de estoque desejado. Caso tenha excedente, distribui os SKUs para CDDs que mais precisam e que possua um custo de transporte menor, a fim de otimizálo.
 
 ## Pré requisitos
 
