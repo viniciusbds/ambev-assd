@@ -42,7 +42,6 @@ A otimização é feita em dois níveis:
 
 ## Pré requisitos
 
-- ubuntu os
 - python3
 - openpyxl
 - pandas
