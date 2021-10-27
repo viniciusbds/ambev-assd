@@ -1,9 +1,9 @@
-# ambev assd <img src="/ufcg.png" alt="drawing" width="30"/>
+# ambev assd 
 
 
-<img src="/icon.png" alt="drawing" width="120"/> 
+<img src="/icon.png" alt="drawing" width="120"/>  
 
-
+## O que é o ASSD?
 
 O ambev **ASSD** é um algoritmo de distribuição de estoques que busca equilibrar os SKUs dos depósitos da Ambev sejam eles dos centros de distribuição **(CDD)** ou das fábricas. O ASSD é consciente da natureza não linear das vendas dos produtos Ambev, que pode variar de acordo com cenarios, como por exemplo: um maior calor em determinada região, feriados regionais, ou simplesmente um desequilibrio em um CDD causado por grandes demandas de grandes supermercados ou revendedores.
 
@@ -27,60 +27,70 @@ A otimização é feita em dois níveis:
    - ou quando um CDD não vende um SKU como esperava e fica com estoque excedente.
 
 
-## Arquivo de apresentação
+## Arquitetura
 
-A apresentação em PDF deverá conter:
+...
 
-- [ ] Nome dos membros do time;
+## Dependencias
 
-- [ ] Descrição do problema que a equipe selecionou para resolver durante o programa;
+- python3
+- openpyxl
+- pandas
+- googlemaps
 
-- [ ] Solução proposta para este problema, contendo descrição do cenário explorado durante o
-desenvolvimento;
+para instalar basta executar:
+```bash 
+pip install [deendency]
+```
 
-- [ ] Desenho da arquitetura da solução desenvolvida;
+## Como executar?
 
-- [ ] Lista de bibliotecas utilizadas e ferramentas integradas (caso existam) da solução;
+### 1° Insira o dataset no diretório [`input`](https://github.com/viniciusbds/ambev-assd/tree/main/input)
 
-- [ ] Lista de features utilizadas durante o desenvolvimento da solução;
+Essa base de dados inclui dois arquivos principais:
 
-- [ ] Imagens da solução desenvolvida, mostrando o funcionamento do protótipo;
+#### data.csv
 
-- [ ] Propostas futuras, indicando o que pode ser melhorado e proposta de novas funcionalidades.
+| Supply Site Code | SKU | Location Code | Average daily demand (Hl)| Location Type | MinDOC (Hl) | Reorder Point (Hl) | MaxDOC  (Hl) | Closing Stock | Available to Deploy
+| ---------------- | --- | ------------- | ------------------------ | ------------- | ----------- | ------------------ | ------------ | ------------- | ----------------- |
 
-- [ ] Inserir link do github no último slide da apresentação do projeto.
 
-Importante: Desenvolvam a apresentação já pensando como base para um possível deck para ser
-apresentado no evento Demoday, caso sua equipe seja selecionada.
+#### localization.csv
 
-## Repositório de código
+| Instalation Code | Latitude | Longitude |
+| ---------------- | -------- | --------- |
 
-O repositório no github deverá conter todo o código desenvolvido no protótipo, para que os mentores
-possam avaliar corretamente o trabalho desenvolvido. Este repositório não deve conter a base de
-dados disponibilizada no programa, conforme documento de confidencialidade assinado pelos membros
-do time.
-Além do código desenvolvido, as equipes devem disponibilizar documentação estilo markdown
-contendo:
+#### distances.csv
 
-- [ ] Visão geral do projeto;
+| originCode | originLatitude | originLongitude | destinyCode | destinyLatitude | destinyLongitude | distance |
+| ---------------- | -------- | --------- | -- | ---------------- | -------- | --------- |
 
-- [ ] Desenho da arquitetura da solução desenvolvida;
+Essa tabela pode ser inserida diretamente no diretório ou gerada execurando o script [distancecalculator.py](https://github.com/viniciusbds/ambev-assd/blob/main/distancecalculator.py)
 
-- [ ] Requisitos para execução da solução, como versão de sistema operacional ou de bibliotecas
-externa (caso exista);
+### 2° Execute o código principal
 
-- [ ] Instrução de instalação ou arquivo de criação do ambiente (virtual environment);
+```bash
+python3 main.py 
+```
 
-- [ ] Instrução de execução do sistema;
+### 3° Os resultados estarão em [`results`](https://github.com/viniciusbds/ambev-assd/tree/main/results)
 
-- [ ] Link da apresentação descrita neste documento;
+Serão dois arquivos: **distribution-result.csv** e **rebalance-result.csv**, que contém as seguintes colunas:
 
-- [ ] Nome dos membros do projeto, podendo indicar a conta pessoal de github de cada membro.
 
-Para ajudar a compreender a estrutura recomendada, segue exemplo de documentação disponibilizada
-pela equipe AcademyHack: https://github.com/lahbs/modelo_academy_hack.
+| Supply Site Code | SKU | Location Code | Average daily demand (Hl)| Location Type | MinDOC (Hl) | Reorder Point (Hl) | MaxDOC  (Hl) | Old Closing Stock | New Closing Stock | Available to Deploy
+| ---------------- | --- | ------------- | ------------------------ | ------------- | ----------- | ------------------ | ------------ | -- | ------------- | ----------------- |
 
-<img src="/ufcg.png" alt="drawing" width="100"/>
+`Old Closing Stock` : quantidade do **SKU** no depósito **Location Code** antes da execução do algoritmo
 
+`New Closing Stock` : quantidade do **SKU** no depósito **Location Code** depois da execução do algoritmo
+
+
+
+## Apresentação
+[slides](https://docs.google.com/presentation/d/1vmMnY2uUdm0bWoeyEkHTZT8bn_Ae7MmfZ-AjhboeY1g/edit?usp=sharing)
+
+
+<img src="/ufcg.png" alt="drawing" width="50"/>
 
 ###### [Icon](./icon.png) made by [Freepik](https://www.flaticon.com/br/autores/freepik) from [www.flaticon.com](https://www.flaticon.com/br/)
