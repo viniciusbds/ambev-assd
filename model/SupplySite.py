@@ -20,6 +20,10 @@ class SupplySite:
 
     def setSKUsToDeploy(self, sku, number):
         self.availableToDeploy[sku] = number
+    
+    
+    def removeSKUsToDeploy(self, sku, number):
+        self.availableToDeploy[sku] -= number
 
 
     def setSKUCapacity(self, sku, min, reorder, max):

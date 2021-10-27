@@ -1,18 +1,38 @@
 from model.SupplySite import SupplySite
 from model.Depot import Depot
 import csv
+import constants
+import pandas as pd
 
-DATASET_PATH = '../../ambev/data.csv'
-LOCATIONS_PATH = '../../ambev/localization.csv'
+
+def readLocalizations():
+    localizations = {}
+    with open(constants.LOCATIONS_PATH, newline='') as csvfile:
+        reader = csv.reader(csvfile, delimiter=',')
+        next(reader, None)  # skip header
+        for row in reader:
+            instalationCode, latitude, longitude = row[0], row[1], row[2]
+            localizations[instalationCode] = (latitude, longitude)
+    return localizations
+
+
+def readDistances():
+    distances = {}
+    with open(constants.DISTANCE_RESULT_PATH, newline='') as csvfile:
+        reader = csv.reader(csvfile, delimiter=',')
+        next(reader, None)  # skip header
+        for row in reader:
+            originCode, destinyCode, distance = row[0], row[3], row[6]
+            key = originCode + ":" + destinyCode
+            distances[key] = distance
+    return distances
+
 
 def readDataset():
-
     supplySites = {}
     depots = {}
-
     localizations = readLocalizations()
-
-    with open(DATASET_PATH, newline='') as csvfile:
+    with open(constants.DATASET_PATH, newline='') as csvfile:
         reader = csv.reader(csvfile, delimiter=',')
         next(reader, None)  # skip header
         for row in reader:
@@ -69,15 +89,38 @@ def readDataset():
     return (supplySites, depots)
 
 
+def saveResult(name, supplySites, depots):
+    csvFileName = constants.RESULTS_DIR + "/" +name + ".csv"
+    f = open(csvFileName, 'w')
+    writer = csv.writer(f)
 
-def readLocalizations():
-    localizations = {}
-    with open(LOCATIONS_PATH, newline='') as csvfile:
+    header = ["supplySiteCode",  "SKU" , "locationCode", "averageDemand", "locationType", "minDOC", "reorderPoint", "maxDOC", "old closingStock",  "new closingStock", "availableToDeploy", "distributorOrders", "futureHolidays"]
+    writer.writerow(header)
+
+    with open(constants.DATASET_PATH, newline='') as csvfile:
         reader = csv.reader(csvfile, delimiter=',')
         next(reader, None)  # skip header
         for row in reader:
-            instalationCode, latitude, longitude = row[0], row[1], row[2]
-            localizations[instalationCode] = (latitude, longitude)
-    return localizations
+            supplySiteCode = row[0]
+            SKU = row[1]
+            locationCode = row[2]
+            averageDemand = row[3]
+            locationType = row[4]
+            minDOC = row[5]
+            reorderPoint = row[6]
+            maxDOC = row[7]
+            closingStock = row[8]
+            availableToDeploy = supplySites[supplySiteCode].availableToDeploy[SKU]
+            distributorOrders = row[10]
+            futureHolidays = row[11]
 
+            newClosingStock = depots[locationCode].closingStock[SKU]
 
+            writer.writerow([supplySiteCode,  SKU , locationCode,
+            averageDemand, locationType, minDOC, reorderPoint, maxDOC,
+            closingStock, newClosingStock, availableToDeploy, distributorOrders, futureHolidays])
+
+    
+    xlsxFileName = constants.RESULTS_DIR + "/" +name + ".xlsx"
+    pd.read_csv(csvFileName).to_excel(xlsxFileName)
+    
