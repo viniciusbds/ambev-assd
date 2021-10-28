@@ -46,7 +46,7 @@ A otimização é feita em dois níveis:
 
 O algoritmo assume que recebe da entrada, na coluna `Average demand (Hl)` uma demanda atualizada que leve em consideração o que já foi consumido nos ultimos dias e que considere possíveis feriados e altas temperaturas nos próximos dias. Por questões de limitações de tempo, o módulo responsável por esse serviço não foi implementado, então assumimos que esse dado que é passado na tabela *data.csv* é confiável.
 
-Esse módulo podria ser implementando usando o algoritmo [fb prophet](https://github.com/facebook/prophet), que usa séries temporais e que podria ajudar na previsão a curto prazo.
+Esse módulo poderia ser implementando usando o algoritmo [fb prophet](https://github.com/facebook/prophet), que usa séries temporais e que poderia ajudar na previsão a curto prazo.
 
 **obs**: não seria papel do cliente passar essas informações, a ideia é que seria outro módulo.
 
