@@ -48,7 +48,6 @@ def readDataset():
             closingStock = row[8]
             availableToDeploy = row[9]
             distributorOrders = row[10]
-            futureHolidays = row[11]
 
             # parse quantitative vars to float
             averageDemand = float(averageDemand.replace(',','.'))
@@ -94,7 +93,7 @@ def saveResult(name, supplySites, depots):
     f = open(csvFileName, 'w')
     writer = csv.writer(f)
 
-    header = ["supplySiteCode",  "SKU" , "locationCode", "averageDemand", "locationType", "minDOC", "reorderPoint", "maxDOC", "old closingStock",  "new closingStock", "availableToDeploy", "distributorOrders", "futureHolidays"]
+    header = ["supplySiteCode",  "SKU" , "locationCode", "averageDemand", "locationType", "minDOC", "reorderPoint", "maxDOC", "old closingStock",  "new closingStock", "availableToDeploy", "distributorOrders"]
     writer.writerow(header)
 
     with open(constants.DATASET_PATH, newline='') as csvfile:
@@ -112,13 +111,12 @@ def saveResult(name, supplySites, depots):
             closingStock = row[8]
             availableToDeploy = supplySites[supplySiteCode].availableToDeploy[SKU]
             distributorOrders = row[10]
-            futureHolidays = row[11]
 
             newClosingStock = depots[locationCode].closingStock[SKU]
 
             writer.writerow([supplySiteCode,  SKU , locationCode,
             averageDemand, locationType, minDOC, reorderPoint, maxDOC,
-            closingStock, newClosingStock, availableToDeploy, distributorOrders, futureHolidays])
+            closingStock, newClosingStock, availableToDeploy, distributorOrders])
 
     
     xlsxFileName = constants.RESULTS_DIR + "/" +name + ".xlsx"

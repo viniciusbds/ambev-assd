@@ -33,12 +33,12 @@ class Depot:
 
         daysThatStockCanSupply = self.closingStock[SKU] / self.averageDemand[SKU]
 
-        if daysThatStockCanSupply > 15:
+        if daysThatStockCanSupply > constants.DAYS_CAN_SUPPLY_TOP:
             # como pode passar aproximadamente 15 dias com o estoque atual, 
             # entao a capacidade desejada para futuras demandas é a mínima
             cap = "min"
             desiredCap = self.capacity[SKU][0] 
-        elif daysThatStockCanSupply > 7 and daysThatStockCanSupply < 15:
+        elif daysThatStockCanSupply > constants.DAYS_CAN_SUPPLY_MED and daysThatStockCanSupply < constants.DAYS_CAN_SUPPLY_TOP:
             # como pode passar aproximadamente entre 7 e 15 dias com o estoque atual,
             # entao a capacidade desejada para futuras demandas é a média (reorder)
             cap = "reorder"

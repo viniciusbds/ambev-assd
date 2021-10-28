@@ -8,4 +8,5 @@ DISTANCE_RESULT_PATH = './input/distances.csv'
 
 RESULTS_DIR = './results'
 
-
+DAYS_CAN_SUPPLY_TOP = 15 # daysThatStockCanSupply
+DAYS_CAN_SUPPLY_MED = 7  # daysThatStockCanSupply
