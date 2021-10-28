@@ -44,7 +44,7 @@ A otimização é feita em dois níveis:
 
 ## Limitações
 
-O algoritmo assume que recebe da entrada, na coluna `Average daily demand (Hl)` uma demanda atualizada que leve em consideração o que já foi consumido nos ultimos dias e que considere possíveis feriados e altas temperaturas nos próximos dias. Por questões de limitações de tempo, o módulo responsável por esse serviço não foi implementado, então assumimos que esse dado que é passado na tabela *data.csv* é confiável.
+O algoritmo assume que recebe da entrada, na coluna `Average demand (Hl)` uma demanda atualizada que leve em consideração o que já foi consumido nos ultimos dias e que considere possíveis feriados e altas temperaturas nos próximos dias. Por questões de limitações de tempo, o módulo responsável por esse serviço não foi implementado, então assumimos que esse dado que é passado na tabela *data.csv* é confiável.
 
 Esse módulo podria ser implementando usando o algoritmo [fb prophet](https://github.com/facebook/prophet), que usa séries temporais e que podria ajudar na previsão a curto prazo.
 
@@ -71,7 +71,7 @@ Essa base de dados inclui dois arquivos principais:
 
 #### data.csv
 
-| Supply Site Code | SKU | Location Code | Average daily demand (Hl)| Location Type | MinDOC (Hl) | Reorder Point (Hl) | MaxDOC  (Hl) | Closing Stock | Available to Deploy
+| Supply Site Code | SKU | Location Code | Average demand (Hl)| Location Type | MinDOC (Hl) | Reorder Point (Hl) | MaxDOC  (Hl) | Closing Stock | Available to Deploy
 | ---------------- | --- | ------------- | ------------------------ | ------------- | ----------- | ------------------ | ------------ | ------------- | ----------------- |
 
 
@@ -98,7 +98,7 @@ python3 main.py
 Serão dois arquivos: **distribution-result.csv** e **rebalance-result.csv**, que contém as seguintes colunas:
 
 
-| Supply Site Code | SKU | Location Code | Average daily demand (Hl)| Location Type | MinDOC (Hl) | Reorder Point (Hl) | MaxDOC  (Hl) | Old Closing Stock | New Closing Stock | Available to Deploy
+| Supply Site Code | SKU | Location Code | Average demand (Hl)| Location Type | MinDOC (Hl) | Reorder Point (Hl) | MaxDOC  (Hl) | Old Closing Stock | New Closing Stock | Available to Deploy
 | ---------------- | --- | ------------- | ------------------------ | ------------- | ----------- | ------------------ | ------------ | -- | ------------- | ----------------- |
 
 `Old Closing Stock` : quantidade do **SKU** no depósito **Location Code** antes da execução do algoritmo
