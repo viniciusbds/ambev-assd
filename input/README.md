@@ -4,7 +4,7 @@ Insira nessa pasta os arquivos com as seguintes estruturas:
 
 #### data.csv
 
-| Supply Site Code | SKU | Location Code | Average daily demand (Hl)| Location Type | MinDOC (Hl) | Reorder Point (Hl) | MaxDOC  (Hl) | Closing Stock | Available to Deploy
+| Supply Site Code | SKU | Location Code | Average demand (Hl)| Location Type | MinDOC (Hl) | Reorder Point (Hl) | MaxDOC  (Hl) | Closing Stock | Available to Deploy
 | ---------------- | --- | ------------- | ------------------------ | ------------- | ----------- | ------------------ | ------------ | ------------- | ----------------- |
 
 
