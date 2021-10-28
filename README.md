@@ -26,7 +26,7 @@ A otimização é feita em dois níveis:
 
    - ou quando um CDD não vende um SKU como esperava e fica com estoque excedente.
 
-##### [Link da Apresentação do Projeto](https://docs.google.com/presentation/d/1vmMnY2uUdm0bWoeyEkHTZT8bn_Ae7MmfZ-AjhboeY1g/edit?usp=sharing)
+##### [Link da Apresentação do Projeto](https://docs.google.com/presentation/d/1PJFX2oOBo11Y8E7wiLWTmox6MduWteeThvZ6fA4oeQs/edit?usp=sharing)
 
 ## Arquitetura
 
