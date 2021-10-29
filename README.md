@@ -40,16 +40,6 @@ A otimização é feita em dois níveis:
 - **Rebalancer**: rebalanceia os estoques, considerando o seu nível de estoque atual e o nível de estoque desejado. Caso tenha excedente, distribui os SKUs para CDDs que mais precisam e que possua um custo de transporte menor, a fim de otimizálo.
 
 
-
-## Limitações
-
-O algoritmo assume que recebe da entrada, na coluna `Average demand (Hl)` uma demanda atualizada que leve em consideração o que já foi consumido nos ultimos dias e que considere possíveis feriados e altas temperaturas nos próximos dias. Por questões de limitações de tempo, o módulo responsável por esse serviço não foi implementado, então assumimos que esse dado que é passado na tabela *data.csv* é confiável.
-
-Esse módulo poderia ser implementando usando o algoritmo [fb prophet](https://github.com/facebook/prophet), que usa séries temporais e que poderia ajudar na previsão a curto prazo.
-
-**obs**: não seria papel do cliente passar essas informações, a ideia é que seria outro módulo.
-
-
 ## Pré requisitos
 
 - python3
@@ -103,6 +93,14 @@ Serão dois arquivos: **distribution-result.csv** e **rebalance-result.csv**, qu
 `Old Closing Stock` : quantidade do **SKU** no depósito **Location Code** antes da execução do algoritmo
 
 `New Closing Stock` : quantidade do **SKU** no depósito **Location Code** depois da execução do algoritmo
+
+## Limitações
+
+O algoritmo assume que recebe da entrada, na coluna `Average demand (Hl)` uma demanda atualizada que leve em consideração o que já foi consumido nos ultimos dias e que considere possíveis feriados e altas temperaturas nos próximos dias. Por questões de limitações de tempo, o módulo responsável por esse serviço não foi implementado, então assumimos que esse dado que é passado na tabela *data.csv* é confiável.
+
+Esse módulo poderia ser implementando usando o algoritmo [fb prophet](https://github.com/facebook/prophet), que usa séries temporais e que poderia ajudar na previsão a curto prazo.
+
+**obs**: não seria papel do cliente passar essas informações, a ideia é que seria outro módulo.
 
 
 ###### Logo [Icon](./icon.png) made by [Freepik](https://www.flaticon.com/br/autores/freepik) from [www.flaticon.com](https://www.flaticon.com/br/)
