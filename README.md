@@ -1,9 +1,10 @@
 # ambev assd 
 
-
 <img src="/icon.png" alt="drawing" width="120"/>  
 
 ## O que é isso? 
+
+>  Este projeto é o resultado da ultima fase do hackathon ABI Academy Hack, realizado pela Ambev no ano de 2021 
 
 O ambev **ASSD** é um algoritmo de distribuição de estoques que busca equilibrar os SKUs dos depósitos da Ambev sejam eles dos centros de distribuição **(CDD)** ou das fábricas. O ASSD é consciente da natureza não linear das vendas dos produtos Ambev, que pode variar de acordo com cenarios, como por exemplo: um maior calor em determinada região, feriados regionais, ou simplesmente um desequilibrio em um CDD causado por grandes demandas de grandes supermercados ou revendedores.
 
